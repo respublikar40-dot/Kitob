@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VELURE — Moda Do'koni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+<!-- CSS bu yerda -->
+
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-logo">VELURE</div>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="#">VELURE</a>
+  <ul class="nav-links">
+    <li><a href="#products" class="active" onclick="setFilter('all',this)">Kolleksiya</a></li>
+    <li><a href="#products" onclick="setFilter('spring',this)">Bahor</a></li>
+    <li><a href="#products" onclick="setFilter('summer',this)">Yoz</a></li>
+    <li><a href="#products" onclick="setFilter('autumn',this)">Kuz</a></li>
+    <li><a href="#products" onclick="setFilter('winter',this)">Qish</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-icon" onclick="openModal()"><i class="ti ti-search"></i></button>
+    <button class="nav-icon"><i class="ti ti-heart"></i></button>
+    <button class="nav-icon" onclick="toggleCart()">
+      <i class="ti ti-shopping-bag"></i>
+      <span class="badge" id="cartBadge">0</span>
+    </button>
+    <button class="btn-nav" onclick="openModal()">Kirish</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-rings">
+    <span></span><span></span><span></span><span></span>
+  </div>
+  <p class="hero-label">2025 Yangi Kolleksiya</p>
+  <h1 class="hero-title">To'rt Fasl,<br><em>Bir Uslub</em></h1>
+  <p class="hero-desc">Har bir mavsum uchun mukammal kiyimlar</p>
+  <div class="hero-ctas">
+    <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Kolleksiyani Ko'rish</button>
+    <button class="btn-secondary" onclick="openModal()">Ro'yxatdan O'tish</button>
+  </div>
+  <div class="hero-scroll">
+    <span>Ko'rish</span>
+    <i class="ti ti-chevron-down"></i>
+  </div>
+</section>
+
+<!-- SEASON TABS -->
+<div class="season-bar">
+  <button class="s-tab active" onclick="setFilter('all',this)">
+    <span class="s-dot" style="background:#777"></span>Barcha
+  </button>
+  <button class="s-tab" onclick="setFilter('spring',this)">
+    <span class="s-dot" style="background:#8fcc8f"></span>Bahor
+  </button>
+  <button class="s-tab" onclick="setFilter('summer',this)">
+    <span class="s-dot" style="background:#f0c060"></span>Yoz
+  </button>
+  <button class="s-tab" onclick="setFilter('autumn',this)">
+    <span class="s-dot" style="background:#e08060"></span>Kuz
+  </button>
+  <button class="s-tab" onclick="setFilter('winter',this)">
+    <span class="s-dot" style="background:#60a0d0"></span>Qish
+  </button>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products-section" id="products">
+  <div class="sec-header">
+    <h2 class="sec-title">Yangi <em>Kelishlar</em></h2>
+    <div style="display:flex;align-items:center;gap:20px">
+      <span class="sec-meta" id="countLabel">24 mahsulot</span>
+      <select class="sort-select" id="sortSel" onchange="renderProducts()">
+        <option value="default">Saralash</option>
+        <option value="price-asc">Narx: Arzon → Qimmat</option>
+        <option value="price-desc">Narx: Qimmat → Arzon</option>
+        <option value="new">Yangisi birinchi</option>
+      </select>
+    </div>
+  </div>
+  <div class="product-grid" id="grid"></div>
+</section>
+
+<!-- MID BANNER -->
+<div class="mid-banner">
+  <div>
+    <h2 class="mb-title">Premium <em>Sifat</em></h2>
+    <p class="mb-desc">Har bir kiyim maxsus tanlangan materiallardan tikilgan.</p>
+  </div>
+  <div class="mb-stats">
+    <div class="stat"><div class="stat-num">500+</div><div class="stat-lbl">Mahsulot</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-lbl">Mavsum</div></div>
+    <div class="stat"><div class="stat-num">12K</div><div class="stat-lbl">Xaridor</div></div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-grid">
+    <div>
+      <div class="ft-logo">VELURE</div>
+      <p class="ft-desc">Zamonaviy moda dunyosida o'z uslubingizni toping.</p>
+    </div>
+    <div class="ft-col">
+      <h5>Kolleksiya</h5>
+      <ul>
+        <li><a href="#">Bahor 2025</a></li>
+        <li><a href="#">Yoz 2025</a></li>
+        <li><a href="#">Kuz 2025</a></li>
+        <li><a href="#">Qish 2025</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Ma'lumot</h5>
+      <ul>
+        <li><a href="#">Biz Haqimizda</a></li>
+        <li><a href="#">Yetkazib Berish</a></li>
+        <li><a href="#">Qaytarish</a></li>
+        <li><a href="#">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="ft-col">
+      <h5>Yordam</h5>
+      <ul>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">O'lchamlar Jadvali</a></li>
+        <li><a href="#">Sovg'a Kartasi</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <span>© 2025 VELURE. Barcha huquqlar himoyalangan.</span>
+    <span>Toshkent, O'zbekiston</span>
+  </div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="handleCartOverlay(event)">
+  <div class="cart-panel">
+    <div class="cart-head">
+      <h2 class="cart-head-title">Savat</h2>
+      <button class="cart-close" onclick="toggleCart()"><i class="ti ti-x"></i></button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-foot" id="cartFoot" style="display:none">
+      <div class="cart-total">
+        <span>Jami</span>
+        <span id="cartTotal">0 so'm</span>
+      </div>
+      <button class="btn-checkout">To'lash</button>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTRATION MODAL -->
+<div class="modal-bg" id="modalBg" onclick="handleModalBgClick(event)">
+  <div class="modal">
+    <button class="modal-x" onclick="closeModal()"><i class="ti ti-x"></i></button>
+    <div id="formView">
+      <div class="modal-brand">VELURE</div>
+      <h2 class="modal-title">Xush Kelibsiz</h2>
+      <p class="modal-sub">Eksklyuziv kolleksiyalardan birinchi bo'ling</p>
+
+      <div class="f-row">
+        <div class="f-group">
+          <label class="f-label" for="fName">Ism</label>
+          <input class="f-input" type="text" id="fName" placeholder="Sardor">
+          <div class="f-error" id="errName">Ismingizni kiriting</div>
+        </div>
+        <div class="f-group">
+          <label class="f-label" for="fSurname">Familiya</label>
+          <input class="f-input" type="text" id="fSurname" placeholder="Karimov">
+          <div class="f-error" id="errSurname">Familiyangizni kiriting</div>
+        </div>
+      </div>
+
+      <div class="f-group">
+        <label class="f-label" for="fEmail">E-mail</label>
+        <input class="f-input" type="email" id="fEmail" placeholder="sardor@email.com">
+        <div class="f-error" id="errEmail">To'g'ri email kiriting</div>
+      </div>
+      <div class="f-group">
+        <label class="f-label" for="fPhone">Telefon</label>
+        <input class="f-input" type="tel" id="fPhone" placeholder="+998 90 123 45 67">
+        <div class="f-error" id="errPhone">Telefon raqamingizni kiriting</div>
+      </div>
+      <div class="f-group">
+        <label class="f-label" for="fPass">Parol</label>
+        <input class="f-input" type="password" id="fPass" placeholder="Kamida 6 ta belgi">
+        <div class="f-error" id="errPass">Kamida 6 ta belgi kiriting</div>
+      </div>
+
+      <div class="f-check">
+        <input type="checkbox" id="fAgree" checked>
+        <label for="fAgree">Men <a href="#">Shartlar</a> va <a href="#">Maxfiylik</a>ga roziman</label>
+      </div>
+      <button class="btn-submit" onclick="handleRegister()">
+        <i class="ti ti-user-plus"></i> Ro'yxatdan O'tish
+      </button>
+      <div class="modal-alt">Hisobingiz bormi? <a onclick="showToast('Kirish tez orada!')">Kirish</a></div>
+    </div>
+
+    <div class="success-view" id="successView">
+      <i class="ti ti-circle-check success-icon"></i>
+      <h3 class="success-title">Tabriklaymiz!</h3>
+      <p class="success-desc">Hisobingiz muvaffaqiyatli yaratildi.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+  <i class="ti ti-check"></i>
+  <span id="toastMsg">Savatga qo'shildi</span>
+</div>
+
+<!-- JS bu yerda -->
+
+</body>
+</html>
